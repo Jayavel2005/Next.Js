@@ -1,9 +1,9 @@
-/**
- * Challenge: Create the About page. This page will be
- * accessible at the `/about` route. (e.g. printforge.com/about)
- */
+"use client";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <main>
       <section className="flex flex-col-reverse items-center justify-between gap-8 px-6 py-12 mx-auto md:flex-row max-w-7xl">
@@ -15,21 +15,27 @@ export default function Home() {
             Discover what's possible with 3D Printing
           </h1>
           <p className="text-lg text-gray-600">
-            Join our community of creators and explore a vast
-            library of user-submitted models.
+            Join our community of creators and explore a vast library of
+            user-submitted models.
           </p>
 
           <div className="flex gap-4">
             <button
-              href="/3d-models"
+              onClick={() => router.push("/3d-models")}
               className="px-6 py-3 text-black transition duration-100 bg-white border-2 border-black hover:bg-black hover:text-white"
             >
               Browse Models
             </button>
           </div>
         </div>
-        <img src="/image.png" width={350} />
+        <Image
+          src="/image.png"
+          width={350}
+          height={350}
+          className="w-[350px]"
+          alt="3D Printing Example"
+        />
       </section>
     </main>
-  )
+  );
 }

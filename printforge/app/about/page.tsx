@@ -1,3 +1,7 @@
+import Image from "next/image";
+import About_Image from "../../public/about-img.png";
+console.log(About_Image);
+
 export default function AboutPage() {
   return (
     <main>
@@ -8,11 +12,13 @@ export default function AboutPage() {
 
         <div className="grid items-center gap-8 mb-12 md:grid-cols-2">
           <div className="relative h-[300px] w-full">
-            <img
-              src="/about-img.png"
+            <Image
+              src={About_Image}
               alt="PrintForge Community - A group of makers collaborating on 3D printing projects"
-              width="350"
+              style={{objectFit : "cover"}}
+              fill
               className="rounded-lg"
+              loading="lazy"
             />
           </div>
           <div>
